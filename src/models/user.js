@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import bcrypt from "bcrypt"
 
 const userCollection = "Users";
 
@@ -8,7 +7,7 @@ const userSchema = new mongoose.Schema({
     last_name: String,
     email: { type: String, unique: true },
     age: Number,
-    password: String,
+    password: String
 });
 
 const firstCollection = mongoose.model(userCollection, userSchema);

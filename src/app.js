@@ -7,7 +7,7 @@ import MongoStore from 'connect-mongo';
 import sessionsRouter from './routes/api/sessions.js';
 import viewsRouter from './routes/views.js';
 import passport from 'passport';
-import { initializePassport } from './config/passport.config.js';
+import initializePassport from './config/passport.config.js';
 
 const app = express();
 
@@ -27,8 +27,7 @@ app.use(session({
     secret: 'secretkey',
     resave: false,
     saveUninitialized: true,
-    store: MongoStore.create({ mongoUrl: 'mongodb+srv://alastairblackwell:3lLd35UcActsfMLZ@cluster0.hprwu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0' }),
-    // cookie: { maxAge: 180 * 60 * 1000 },
+    store: MongoStore.create({ mongoUrl: 'MONGO_URL' })
 }));
 
 initializePassport()
